@@ -1,9 +1,10 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package BankingSystem.core.humanResources;
+package bankingsystem.core.humanresources;
 import java.util.*;
-import BankingSystem.core.intangableResources.*;
+
+import bankingsystem.core.intangableresources.*;
 
 // line 20 "../../../../model.ump"
 // line 120 "../../../../model.ump"
