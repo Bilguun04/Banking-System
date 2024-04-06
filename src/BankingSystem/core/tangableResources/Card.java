@@ -1,11 +1,11 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package bankingsystem.core.tangableresources;
-import bankingsystem.core.intangableresources.*;
+package BankingSystem.core.tangableResources;
+import BankingSystem.core.intangableResources.*;
 
-// line 70 "../../../../model.ump"
-// line 151 "../../../../model.ump"
+// line 72 "../../../../model.ump"
+// line 153 "../../../../model.ump"
 public class Card
 {
 

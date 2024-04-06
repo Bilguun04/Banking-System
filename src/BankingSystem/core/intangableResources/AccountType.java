@@ -1,11 +1,11 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package bankingsystem.core.intangableresources;
+package BankingSystem.core.intangableResources;
 import java.util.*;
 
-// line 43 "../../../../model.ump"
-// line 101 "../../../../model.ump"
+// line 45 "../../../../model.ump"
+// line 103 "../../../../model.ump"
 public class AccountType
 {
 

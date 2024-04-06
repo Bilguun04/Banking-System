@@ -1,10 +1,10 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package bankingsystem.core.humanresources;
+package BankingSystem.core.humanResources;
 
 // line 6 "../../../../model.ump"
-// line 142 "../../../../model.ump"
+// line 144 "../../../../model.ump"
 public class PersonRole
 {
 

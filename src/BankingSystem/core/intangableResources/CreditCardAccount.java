@@ -1,15 +1,14 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package bankingsystem.core.intangableresources;
+package BankingSystem.core.intangableResources;
 import java.sql.Date;
 import java.util.*;
+import BankingSystem.core.tangableResources.*;
+import BankingSystem.core.humanResources.*;
 
-import bankingsystem.core.humanresources.*;
-import bankingsystem.core.tangableresources.*;
-
-// line 56 "../../../../model.ump"
-// line 115 "../../../../model.ump"
+// line 58 "../../../../model.ump"
+// line 117 "../../../../model.ump"
 public class CreditCardAccount extends Account
 {
 

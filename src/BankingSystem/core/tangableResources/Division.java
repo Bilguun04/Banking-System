@@ -1,13 +1,12 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package bankingsystem.core.tangableresources;
+package BankingSystem.core.tangableResources;
 import java.util.*;
+import BankingSystem.core.humanResources.*;
 
-import bankingsystem.core.humanresources.*;
-
-// line 83 "../../../../model.ump"
-// line 156 "../../../../model.ump"
+// line 85 "../../../../model.ump"
+// line 158 "../../../../model.ump"
 public class Division
 {
 
@@ -127,9 +126,9 @@ public class Division
     return 0;
   }
   /* Code from template association_AddManyToOne */
-  public Employee addEmployee(Person aPerson)
+  public Employee addEmployee(Person aPerson, int aEmployeeID)
   {
-    return new Employee(aPerson, this);
+    return new Employee(aPerson, aEmployeeID, this);
   }
 
   public boolean addEmployee(Employee aEmployee)

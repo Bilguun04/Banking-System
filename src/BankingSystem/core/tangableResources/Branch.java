@@ -1,14 +1,13 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package bankingsystem.core.tangableresources;
+package BankingSystem.core.tangableResources;
 import java.util.*;
+import BankingSystem.core.intangableResources.*;
+import BankingSystem.core.humanResources.*;
 
-import bankingsystem.core.humanresources.*;
-import bankingsystem.core.intangableresources.*;
-
-// line 75 "../../../../model.ump"
-// line 146 "../../../../model.ump"
+// line 77 "../../../../model.ump"
+// line 148 "../../../../model.ump"
 public class Branch extends Division
 {
 

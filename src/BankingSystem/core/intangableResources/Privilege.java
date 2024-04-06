@@ -1,11 +1,11 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package bankingsystem.core.intangableresources;
+package BankingSystem.core.intangableResources;
 import java.util.*;
 
-// line 51 "../../../../model.ump"
-// line 106 "../../../../model.ump"
+// line 53 "../../../../model.ump"
+// line 108 "../../../../model.ump"
 public class Privilege
 {
 

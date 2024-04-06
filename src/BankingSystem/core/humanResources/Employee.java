@@ -1,17 +1,20 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package bankingsystem.core.humanresources;
-import bankingsystem.core.tangableresources.*;
+package BankingSystem.core.humanResources;
+import BankingSystem.core.tangableResources.*;
 
-// line 16 "../../../../model.ump"
-// line 137 "../../../../model.ump"
+// line 17 "../../../../model.ump"
+// line 139 "../../../../model.ump"
 public class Employee extends PersonRole
 {
 
   //------------------------
   // MEMBER VARIABLES
   //------------------------
+
+  //Employee Attributes
+  private int employeeID;
 
   //Employee Associations
   private Manager manager;
@@ -21,9 +24,10 @@ public class Employee extends PersonRole
   // CONSTRUCTOR
   //------------------------
 
-  public Employee(Person aPerson, Division aDivision)
+  public Employee(Person aPerson, int aEmployeeID, Division aDivision)
   {
     super(aPerson);
+    employeeID = aEmployeeID;
     boolean didAddDivision = setDivision(aDivision);
     if (!didAddDivision)
     {
@@ -34,6 +38,19 @@ public class Employee extends PersonRole
   //------------------------
   // INTERFACE
   //------------------------
+
+  public boolean setEmployeeID(int aEmployeeID)
+  {
+    boolean wasSet = false;
+    employeeID = aEmployeeID;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public int getEmployeeID()
+  {
+    return employeeID;
+  }
   /* Code from template association_GetOne */
   public Manager getManager()
   {
@@ -104,4 +121,12 @@ public class Employee extends PersonRole
     super.delete();
   }
 
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "employeeID" + ":" + getEmployeeID()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "manager = "+(getManager()!=null?Integer.toHexString(System.identityHashCode(getManager())):"null") + System.getProperties().getProperty("line.separator") +
+            "  " + "division = "+(getDivision()!=null?Integer.toHexString(System.identityHashCode(getDivision())):"null");
+  }
 }

@@ -1,11 +1,11 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package bankingsystem.core.humanresources;
+package BankingSystem.core.humanResources;
 import java.util.*;
 
 // line 8 "../../../../model.ump"
-// line 126 "../../../../model.ump"
+// line 128 "../../../../model.ump"
 public class Person
 {
 
@@ -17,6 +17,7 @@ public class Person
   private String name;
   private String address;
   private String phoneNumber;
+  private String email;
 
   //Person Associations
   private List<PersonRole> personRoles;
@@ -25,11 +26,12 @@ public class Person
   // CONSTRUCTOR
   //------------------------
 
-  public Person(String aName, String aAddress, String aPhoneNumber)
+  public Person(String aName, String aAddress, String aPhoneNumber, String aEmail)
   {
     name = aName;
     address = aAddress;
     phoneNumber = aPhoneNumber;
+    email = aEmail;
     personRoles = new ArrayList<PersonRole>();
   }
 
@@ -61,6 +63,14 @@ public class Person
     return wasSet;
   }
 
+  public boolean setEmail(String aEmail)
+  {
+    boolean wasSet = false;
+    email = aEmail;
+    wasSet = true;
+    return wasSet;
+  }
+
   public String getName()
   {
     return name;
@@ -74,6 +84,11 @@ public class Person
   public String getPhoneNumber()
   {
     return phoneNumber;
+  }
+
+  public String getEmail()
+  {
+    return email;
   }
   /* Code from template association_GetMany */
   public PersonRole getPersonRole(int index)
@@ -193,6 +208,7 @@ public class Person
     return super.toString() + "["+
             "name" + ":" + getName()+ "," +
             "address" + ":" + getAddress()+ "," +
-            "phoneNumber" + ":" + getPhoneNumber()+ "]";
+            "phoneNumber" + ":" + getPhoneNumber()+ "," +
+            "email" + ":" + getEmail()+ "]";
   }
 }

@@ -1,13 +1,12 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package bankingsystem.core.humanresources;
+package BankingSystem.core.humanResources;
 import java.util.*;
+import BankingSystem.core.tangableResources.*;
 
-import bankingsystem.core.tangableresources.*;
-
-// line 29 "../../../../model.ump"
-// line 131 "../../../../model.ump"
+// line 31 "../../../../model.ump"
+// line 133 "../../../../model.ump"
 public class Manager extends Employee
 {
 
@@ -22,9 +21,9 @@ public class Manager extends Employee
   // CONSTRUCTOR
   //------------------------
 
-  public Manager(Person aPerson, Division aDivision)
+  public Manager(Person aPerson, int aEmployeeID, Division aDivision)
   {
-    super(aPerson, aDivision);
+    super(aPerson, aEmployeeID, aDivision);
     employees = new ArrayList<Employee>();
   }
 

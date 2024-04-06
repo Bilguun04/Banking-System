@@ -1,13 +1,12 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package bankingsystem.core.humanresources;
+package BankingSystem.core.humanResources;
 import java.util.*;
+import BankingSystem.core.intangableResources.*;
 
-import bankingsystem.core.intangableresources.*;
-
-// line 20 "../../../../model.ump"
-// line 120 "../../../../model.ump"
+// line 22 "../../../../model.ump"
+// line 122 "../../../../model.ump"
 public class Client extends PersonRole
 {
 

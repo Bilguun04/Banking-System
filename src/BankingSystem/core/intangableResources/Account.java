@@ -1,14 +1,13 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package bankingsystem.core.intangableresources;
+package BankingSystem.core.intangableResources;
 import java.util.*;
+import BankingSystem.core.humanResources.*;
+import BankingSystem.core.tangableResources.*;
 
-import bankingsystem.core.humanresources.*;
-import bankingsystem.core.tangableresources.*;
-
-// line 36 "../../../../model.ump"
-// line 96 "../../../../model.ump"
+// line 38 "../../../../model.ump"
+// line 98 "../../../../model.ump"
 public class Account
 {
 
