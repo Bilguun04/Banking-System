@@ -1,5 +1,5 @@
 package bankingsystem.core.controller;
 
-public class ATMController {
-
+public class DivisionController {
+    
 }

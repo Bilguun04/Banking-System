@@ -9,16 +9,16 @@ import java.util.List;
 
 public class EmployeeController {
 
-    private static Branch branch = BranchApplication.getBranch();
+    private static Branch branch = BankApplication.getBranch();
 
-    public static boolean addEmployeeToBranch(Person person, Division division) {
-        Employee employee = new Employee(person, division);
+    public static boolean addEmployeeToBranch(Person person, int employeeID, Division division) {
+        Employee employee = new Employee(person, employeeID, division);
         boolean success = branch.addEmployee(employee);
         return success;
     }
 
-    public static boolean updateEmployee(String employeeId, String name, String address, String phoneNumber) {
-        Employee employee = branch.getEmployee(Integer.parseInt(employeeId));
+    public static boolean updateEmployee(int employeeId, String name, String address, String phoneNumber) {
+        Employee employee = branch.getEmployee(employeeId);
         if (employee == null){
             return false;
         }
@@ -29,20 +29,24 @@ public class EmployeeController {
 
         List<Employee> employees = branch.getEmployees();
         for (Employee e : employees) {
-            if (e.getPerson().equals(employee.getPerson())) {
+            if (e.getEmployeeID() == employeeId) {
                 e.getPerson().setName(name);
                 e.getPerson().setAddress(address);
                 e.getPerson().setPhoneNumber(phoneNumber);
+                return true;
             }
         }
+        return false;
+    }
+
+    public static void deleteEmployee(int employeeId) {
+        Employee employee = branch.getEmployee(employeeId);
+        employee.delete();
+    }
+
+    public static boolean removeEmployeeFromBranch(int employeeId) {
+        Employee employee = branch.getEmployee(employeeId);
+        boolean success = branch.removeEmployee(employee);
         return success;
-    }
-
-    public static boolean deleteEmployee(String employeeId) {
-        return true;
-    }
-
-    public static boolean removeEmployeeFromBranch(String employeeId, String branchId) {
-        return true;
     }
 }

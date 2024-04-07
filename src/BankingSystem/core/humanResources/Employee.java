@@ -1,8 +1,8 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package BankingSystem.core.humanResources;
-import BankingSystem.core.tangableResources.*;
+package bankingsystem.core.humanresources;
+import bankingsystem.core.tangableresources.*;
 
 // line 17 "../../../../model.ump"
 // line 139 "../../../../model.ump"

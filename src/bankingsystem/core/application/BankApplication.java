@@ -4,7 +4,7 @@ import bankingsystem.core.tangableresources.*;
 import bankingsystem.core.intangableresources.*;
 import bankingsystem.core.humanresources.*;
 
-public class BranchApplication {
+public class BankApplication {
   private static Branch branch;
 
   public static void main(String[] args) {

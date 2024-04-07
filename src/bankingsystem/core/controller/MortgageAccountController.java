@@ -1,5 +1,5 @@
 package bankingsystem.core.controller;
 
-public class TransactionController {
+public class MortgageAccountController {
     
 }

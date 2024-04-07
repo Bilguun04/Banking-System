@@ -9,7 +9,7 @@ import java.util.List;
 
 public class AccountController {
 
-    private static Branch branch = BranchApplication.getBranch();
+    private static Branch branch = BankApplication.getBranch();
 
     public static boolean createAccount(int accountNumber, float balance, float creditLimit, AccountType accountType) {
         Account account = new Account(accountNumber, balance, creditLimit, accountType, branch);
