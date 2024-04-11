@@ -1,0 +1,7 @@
+plugins {
+    java
+}
+
+dependencies {
+    testImplementation('junit:junit:(YOUR_JUNIT_VERSION)')
+}

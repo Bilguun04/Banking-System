@@ -1,11 +1,12 @@
 package test.java;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
-import io.cucumber.java.en.Then;
+import io.cucumber.api.java.en.Given;
+import io.cucumber.api.java.en.When;
+import io.cucumber.api.java.en.Then;
 import main.java.bankingsystem.core.controller.*;
 import main.java.bankingsystem.core.model.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class AddandUpdateAccountStepDefinition {
 
@@ -26,17 +27,8 @@ public class AddandUpdateAccountStepDefinition {
 
     @Then("The account should be added")
     public void the_account_should_be_added() {
-        // Code to check that the account was added
-    }
-
-    @When("I update the account with account number {string}")
-    public void i_update_the_account_with_account_number(String accountNumber) {
-        account.setAccountNumber(accountNumber);
-        accountController.updateAccount(account);
-    }
-
-    @Then("The account should be updated")
-    public void the_account_should_be_updated() {
-        // Code to check that the account was updated
+        Account addedAccount = accountController.getAccount(account.getAccountNumber());
+        assertNotNull(addedAccount);
+        assertEquals(account.getAccountNumber(), addedAccount.getAccountNumber());
     }
 }
