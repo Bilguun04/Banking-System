@@ -1,11 +1,11 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package BankingSystem.core;
+package src.bankingsystem.core;
 
-// line 23 "../../../model.ump"
-// line 116 "../../../model.ump"
-public class FinancialInstrument
+// line 14 "../../../model.ump"
+// line 127 "../../../model.ump"
+public class CreditCardCompany extends FinancialInstitution
 {
 
   //------------------------
@@ -16,14 +16,18 @@ public class FinancialInstrument
   // CONSTRUCTOR
   //------------------------
 
-  public FinancialInstrument()
-  {}
+  public CreditCardCompany(String aName)
+  {
+    super(aName);
+  }
 
   //------------------------
   // INTERFACE
   //------------------------
 
   public void delete()
-  {}
+  {
+    super.delete();
+  }
 
 }

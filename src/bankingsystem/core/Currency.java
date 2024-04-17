@@ -1,7 +1,7 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package BankingSystem.core;
+package src.bankingsystem.core;
 
 // line 60 "../../../model.ump"
 // line 94 "../../../model.ump"
