@@ -1,11 +1,11 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
 
-package src.bankingsystem.core;
+package src.main.core;
 
-// line 14 "../../../model.ump"
-// line 127 "../../../model.ump"
-public class CreditCardCompany extends FinancialInstitution
+// line 73 "../../../model.ump"
+// line 106 "../../../model.ump"
+public class Loan extends BankAccount
 {
 
   //------------------------
@@ -16,9 +16,9 @@ public class CreditCardCompany extends FinancialInstitution
   // CONSTRUCTOR
   //------------------------
 
-  public CreditCardCompany(String aName)
+  public Loan(String aAccountNumber, String aBalance, float aOverdraftOrCreditLimit, Branch aBranch)
   {
-    super(aName);
+    super(aAccountNumber, aBalance, aOverdraftOrCreditLimit, aBranch);
   }
 
   //------------------------
