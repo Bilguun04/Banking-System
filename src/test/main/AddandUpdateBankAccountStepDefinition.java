@@ -24,4 +24,18 @@ public class AddandUpdateBankAccountStepDefinition {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
+
+    public static void main(String[] args) {
+        BankAccountController bankAccountController = new BankAccountController();
+        BankAccount bankAccount = new BankAccount();
+        bankAccount.setAccountNumber("1234567890");
+        bankAccount.setAccountHolderName("John Doe");
+        bankAccount.setBankName("Bank of America");
+        bankAccount.setBranchName("New York");
+        bankAccount.setIfscCode("BOFAUS3N");
+        bankAccount.setAccountType("Savings");
+        bankAccount.setBalance(1000.0);
+        bankAccountController.addBankAccount(bankAccount);
+        System.out.println("Bank Account added successfully");
+    }
 }
