@@ -3,8 +3,8 @@ package src.test.main;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import src.main.controller.*;
-import src.main.core.*;
+import src.main.controller.BankAccountController;
+import src.main.core.BankAccount;
 
 public class AddandUpdateBankAccountStepDefinition {
     @Given("the following bank accounts exist in the system")
