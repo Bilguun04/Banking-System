@@ -1,32 +1,17 @@
-/*PLEASE DO NOT EDIT THIS CODE*/
-/*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
-
 package src.main.core;
 import java.util.*;
 import java.sql.Date;
 
-// line 50 "../../../model.ump"
-// line 132 "../../../model.ump"
 public class BankAccount extends FinancialInstrument
 {
 
-  //------------------------
-  // MEMBER VARIABLES
-  //------------------------
-
-  //BankAccount Attributes
   private String accountNumber;
   private String balance;
   private float overdraftOrCreditLimit;
 
-  //BankAccount Associations
   private List<DebitCard> debitCards;
   private List<Cheque> cheques;
   private Branch branch;
-
-  //------------------------
-  // CONSTRUCTOR
-  //------------------------
 
   public BankAccount(String aAccountNumber, String aBalance, float aOverdraftOrCreditLimit, Branch aBranch)
   {
@@ -42,10 +27,6 @@ public class BankAccount extends FinancialInstrument
       throw new RuntimeException("Unable to create bankAccount due to branch. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
     }
   }
-
-  //------------------------
-  // INTERFACE
-  //------------------------
 
   public boolean setAccountNumber(String aAccountNumber)
   {
@@ -85,7 +66,6 @@ public class BankAccount extends FinancialInstrument
   {
     return overdraftOrCreditLimit;
   }
-  /* Code from template association_GetMany */
   public DebitCard getDebitCard(int index)
   {
     DebitCard aDebitCard = debitCards.get(index);
@@ -115,7 +95,6 @@ public class BankAccount extends FinancialInstrument
     int index = debitCards.indexOf(aDebitCard);
     return index;
   }
-  /* Code from template association_GetMany */
   public Cheque getCheque(int index)
   {
     Cheque aCheque = cheques.get(index);
@@ -145,17 +124,14 @@ public class BankAccount extends FinancialInstrument
     int index = cheques.indexOf(aCheque);
     return index;
   }
-  /* Code from template association_GetOne */
   public Branch getBranch()
   {
     return branch;
   }
-  /* Code from template association_MinimumNumberOfMethod */
   public static int minimumNumberOfDebitCards()
   {
     return 0;
   }
-  /* Code from template association_AddManyToManyMethod */
   public boolean addDebitCard(DebitCard aDebitCard)
   {
     boolean wasAdded = false;
@@ -175,7 +151,6 @@ public class BankAccount extends FinancialInstrument
     }
     return wasAdded;
   }
-  /* Code from template association_RemoveMany */
   public boolean removeDebitCard(DebitCard aDebitCard)
   {
     boolean wasRemoved = false;
@@ -200,7 +175,6 @@ public class BankAccount extends FinancialInstrument
     }
     return wasRemoved;
   }
-  /* Code from template association_AddIndexControlFunctions */
   public boolean addDebitCardAt(DebitCard aDebitCard, int index)
   {  
     boolean wasAdded = false;
@@ -232,12 +206,10 @@ public class BankAccount extends FinancialInstrument
     }
     return wasAdded;
   }
-  /* Code from template association_MinimumNumberOfMethod */
   public static int minimumNumberOfCheques()
   {
     return 0;
   }
-  /* Code from template association_AddManyToOne */
   public Cheque addCheque(String aAmount, Date aDate, String aSequenceNumber)
   {
     return new Cheque(aAmount, aDate, aSequenceNumber, this);
@@ -264,7 +236,6 @@ public class BankAccount extends FinancialInstrument
   public boolean removeCheque(Cheque aCheque)
   {
     boolean wasRemoved = false;
-    //Unable to remove aCheque, as it must always have a bankAccount
     if (!this.equals(aCheque.getBankAccount()))
     {
       cheques.remove(aCheque);
@@ -272,7 +243,6 @@ public class BankAccount extends FinancialInstrument
     }
     return wasRemoved;
   }
-  /* Code from template association_AddIndexControlFunctions */
   public boolean addChequeAt(Cheque aCheque, int index)
   {  
     boolean wasAdded = false;
@@ -304,7 +274,6 @@ public class BankAccount extends FinancialInstrument
     }
     return wasAdded;
   }
-  /* Code from template association_SetOneToMany */
   public boolean setBranch(Branch aBranch)
   {
     boolean wasSet = false;

@@ -1,37 +1,18 @@
-/*PLEASE DO NOT EDIT THIS CODE*/
-/*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
-
 package src.main.core;
 import java.util.*;
 
-// line 9 "../../../model.ump"
-// line 145 "../../../model.ump"
 public class FinancialInstitution
 {
 
-  //------------------------
-  // MEMBER VARIABLES
-  //------------------------
-
-  //FinancialInstitution Attributes
   private String name;
 
-  //FinancialInstitution Associations
   private List<ReusableFinancialInstrument> reusableFinancialInstruments;
-
-  //------------------------
-  // CONSTRUCTOR
-  //------------------------
 
   public FinancialInstitution(String aName)
   {
     name = aName;
     reusableFinancialInstruments = new ArrayList<ReusableFinancialInstrument>();
   }
-
-  //------------------------
-  // INTERFACE
-  //------------------------
 
   public boolean setName(String aName)
   {
@@ -45,7 +26,6 @@ public class FinancialInstitution
   {
     return name;
   }
-  /* Code from template association_GetMany */
   public ReusableFinancialInstrument getReusableFinancialInstrument(int index)
   {
     ReusableFinancialInstrument aReusableFinancialInstrument = reusableFinancialInstruments.get(index);
@@ -75,12 +55,10 @@ public class FinancialInstitution
     int index = reusableFinancialInstruments.indexOf(aReusableFinancialInstrument);
     return index;
   }
-  /* Code from template association_MinimumNumberOfMethod */
   public static int minimumNumberOfReusableFinancialInstruments()
   {
     return 0;
   }
-  /* Code from template association_AddManyToOne */
   public ReusableFinancialInstrument addReusableFinancialInstrument(String aNumber, String aPin, Currency aCurrency)
   {
     return new ReusableFinancialInstrument(aNumber, aPin, aCurrency, this);
@@ -107,7 +85,6 @@ public class FinancialInstitution
   public boolean removeReusableFinancialInstrument(ReusableFinancialInstrument aReusableFinancialInstrument)
   {
     boolean wasRemoved = false;
-    //Unable to remove aReusableFinancialInstrument, as it must always have a financialInstitution
     if (!this.equals(aReusableFinancialInstrument.getFinancialInstitution()))
     {
       reusableFinancialInstruments.remove(aReusableFinancialInstrument);
@@ -115,7 +92,6 @@ public class FinancialInstitution
     }
     return wasRemoved;
   }
-  /* Code from template association_AddIndexControlFunctions */
   public boolean addReusableFinancialInstrumentAt(ReusableFinancialInstrument aReusableFinancialInstrument, int index)
   {  
     boolean wasAdded = false;

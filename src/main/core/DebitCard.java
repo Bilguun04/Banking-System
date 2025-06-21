@@ -1,24 +1,10 @@
-/*PLEASE DO NOT EDIT THIS CODE*/
-/*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
-
 package src.main.core;
 import java.util.*;
 
-// line 39 "../../../model.ump"
-// line 111 "../../../model.ump"
 public class DebitCard extends ReusableFinancialInstrument
 {
 
-  //------------------------
-  // MEMBER VARIABLES
-  //------------------------
-
-  //DebitCard Associations
   private List<BankAccount> bankAccounts;
-
-  //------------------------
-  // CONSTRUCTOR
-  //------------------------
 
   public DebitCard(String aNumber, String aPin, Currency aCurrency, FinancialInstitution aFinancialInstitution, BankAccount... allBankAccounts)
   {
@@ -31,10 +17,6 @@ public class DebitCard extends ReusableFinancialInstrument
     }
   }
 
-  //------------------------
-  // INTERFACE
-  //------------------------
-  /* Code from template association_GetMany */
   public BankAccount getBankAccount(int index)
   {
     BankAccount aBankAccount = bankAccounts.get(index);
@@ -64,18 +46,15 @@ public class DebitCard extends ReusableFinancialInstrument
     int index = bankAccounts.indexOf(aBankAccount);
     return index;
   }
-  /* Code from template association_IsNumberOfValidMethod */
   public boolean isNumberOfBankAccountsValid()
   {
     boolean isValid = numberOfBankAccounts() >= minimumNumberOfBankAccounts();
     return isValid;
   }
-  /* Code from template association_MinimumNumberOfMethod */
   public static int minimumNumberOfBankAccounts()
   {
     return 1;
   }
-  /* Code from template association_AddManyToManyMethod */
   public boolean addBankAccount(BankAccount aBankAccount)
   {
     boolean wasAdded = false;
@@ -95,7 +74,6 @@ public class DebitCard extends ReusableFinancialInstrument
     }
     return wasAdded;
   }
-  /* Code from template association_AddMStarToMany */
   public boolean removeBankAccount(BankAccount aBankAccount)
   {
     boolean wasRemoved = false;
@@ -125,7 +103,6 @@ public class DebitCard extends ReusableFinancialInstrument
     }
     return wasRemoved;
   }
-  /* Code from template association_SetMStarToMany */
   public boolean setBankAccounts(BankAccount... newBankAccounts)
   {
     boolean wasSet = false;
@@ -166,7 +143,6 @@ public class DebitCard extends ReusableFinancialInstrument
     wasSet = true;
     return wasSet;
   }
-  /* Code from template association_AddIndexControlFunctions */
   public boolean addBankAccountAt(BankAccount aBankAccount, int index)
   {  
     boolean wasAdded = false;

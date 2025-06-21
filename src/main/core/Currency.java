@@ -1,34 +1,15 @@
-/*PLEASE DO NOT EDIT THIS CODE*/
-/*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
-
 package src.main.core;
 
-// line 60 "../../../model.ump"
-// line 94 "../../../model.ump"
 public class Currency
 {
-
-  //------------------------
-  // MEMBER VARIABLES
-  //------------------------
-
-  //Currency Attributes
   private String code;
   private String exchangeRate;
-
-  //------------------------
-  // CONSTRUCTOR
-  //------------------------
 
   public Currency(String aCode, String aExchangeRate)
   {
     code = aCode;
     exchangeRate = aExchangeRate;
   }
-
-  //------------------------
-  // INTERFACE
-  //------------------------
 
   public boolean setCode(String aCode)
   {

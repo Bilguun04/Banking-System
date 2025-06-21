@@ -1,32 +1,14 @@
-/*PLEASE DO NOT EDIT THIS CODE*/
-/*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
-
 package src.main.core;
 import java.sql.Date;
 
-/**
- * Positioning
- */
-// line 43 "../../../model.ump"
-// line 83 "../../../model.ump"
 public class Cheque extends FinancialInstrument
 {
 
-  //------------------------
-  // MEMBER VARIABLES
-  //------------------------
-
-  //Cheque Attributes
   private String amount;
   private Date date;
   private String sequenceNumber;
 
-  //Cheque Associations
   private BankAccount bankAccount;
-
-  //------------------------
-  // CONSTRUCTOR
-  //------------------------
 
   public Cheque(String aAmount, Date aDate, String aSequenceNumber, BankAccount aBankAccount)
   {
@@ -40,10 +22,6 @@ public class Cheque extends FinancialInstrument
       throw new RuntimeException("Unable to create cheque due to bankAccount. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
     }
   }
-
-  //------------------------
-  // INTERFACE
-  //------------------------
 
   public boolean setAmount(String aAmount)
   {
@@ -83,12 +61,10 @@ public class Cheque extends FinancialInstrument
   {
     return sequenceNumber;
   }
-  /* Code from template association_GetOne */
   public BankAccount getBankAccount()
   {
     return bankAccount;
   }
-  /* Code from template association_SetOneToMany */
   public boolean setBankAccount(BankAccount aBankAccount)
   {
     boolean wasSet = false;

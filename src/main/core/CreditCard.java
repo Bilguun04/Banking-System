@@ -1,24 +1,10 @@
-/*PLEASE DO NOT EDIT THIS CODE*/
-/*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
-
 package src.main.core;
 
-// line 33 "../../../model.ump"
-// line 99 "../../../model.ump"
 public class CreditCard extends ReusableFinancialInstrument
 {
 
-  //------------------------
-  // MEMBER VARIABLES
-  //------------------------
-
-  //CreditCard Attributes
   private String creditLimit;
   private String name;
-
-  //------------------------
-  // CONSTRUCTOR
-  //------------------------
 
   public CreditCard(String aNumber, String aPin, Currency aCurrency, FinancialInstitution aFinancialInstitution, String aCreditLimit, String aName)
   {
@@ -26,10 +12,6 @@ public class CreditCard extends ReusableFinancialInstrument
     creditLimit = aCreditLimit;
     name = aName;
   }
-
-  //------------------------
-  // INTERFACE
-  //------------------------
 
   public boolean setCreditLimit(String aCreditLimit)
   {

@@ -1,29 +1,14 @@
-/*PLEASE DO NOT EDIT THIS CODE*/
-/*This code was generated using the UMPLE 1.33.0.6934.a386b0a58 modeling language!*/
-
 package src.main.core;
 import java.util.*;
 
-// line 66 "../../../model.ump"
-// line 139 "../../../model.ump"
 public class Branch
 {
 
-  //------------------------
-  // MEMBER VARIABLES
-  //------------------------
-
-  //Branch Attributes
   private String name;
   private String address;
 
-  //Branch Associations
   private List<BankAccount> bankAccounts;
   private Bank bank;
-
-  //------------------------
-  // CONSTRUCTOR
-  //------------------------
 
   public Branch(String aName, String aAddress, Bank aBank)
   {
@@ -36,10 +21,6 @@ public class Branch
       throw new RuntimeException("Unable to create branch due to bank. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
     }
   }
-
-  //------------------------
-  // INTERFACE
-  //------------------------
 
   public boolean setName(String aName)
   {
@@ -66,7 +47,6 @@ public class Branch
   {
     return address;
   }
-  /* Code from template association_GetMany */
   public BankAccount getBankAccount(int index)
   {
     BankAccount aBankAccount = bankAccounts.get(index);
@@ -96,17 +76,14 @@ public class Branch
     int index = bankAccounts.indexOf(aBankAccount);
     return index;
   }
-  /* Code from template association_GetOne */
   public Bank getBank()
   {
     return bank;
   }
-  /* Code from template association_MinimumNumberOfMethod */
   public static int minimumNumberOfBankAccounts()
   {
     return 0;
   }
-  /* Code from template association_AddManyToOne */
   public BankAccount addBankAccount(String aAccountNumber, String aBalance, float aOverdraftOrCreditLimit)
   {
     return new BankAccount(aAccountNumber, aBalance, aOverdraftOrCreditLimit, this);
@@ -133,7 +110,6 @@ public class Branch
   public boolean removeBankAccount(BankAccount aBankAccount)
   {
     boolean wasRemoved = false;
-    //Unable to remove aBankAccount, as it must always have a branch
     if (!this.equals(aBankAccount.getBranch()))
     {
       bankAccounts.remove(aBankAccount);
@@ -141,7 +117,6 @@ public class Branch
     }
     return wasRemoved;
   }
-  /* Code from template association_AddIndexControlFunctions */
   public boolean addBankAccountAt(BankAccount aBankAccount, int index)
   {  
     boolean wasAdded = false;
@@ -173,7 +148,6 @@ public class Branch
     }
     return wasAdded;
   }
-  /* Code from template association_SetOneToMany */
   public boolean setBank(Bank aBank)
   {
     boolean wasSet = false;

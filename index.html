@@ -1,39 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banking System</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banking System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white font-sans leading-relaxed min-h-screen">
 
-<h1>Banking System</h1>
+  <div class="max-w-4xl mx-auto px-6 py-12">
+    <!-- Header -->
+    <header class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12 gap-4">
+      <div class="text-center sm:text-left">
+        <h1 class="text-5xl font-extrabold text-blue-400 drop-shadow-sm">🏦 Banking System</h1>
+        <p class="mt-2 text-lg text-gray-400">A simulation for managing banking operations with ease.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3 sm:mt-0">
+        <a href="/" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2 rounded-full shadow-md transition duration-300 text-center">
+          Portfolio Homepage
+        </a>
+        <a href="https://github.com/bilguun04/Banking-System" target="_blank"
+           class="bg-gray-700 hover:bg-gray-600 text-white font-medium px-5 py-2 rounded-full shadow-md transition duration-300 text-center">
+          GitHub Repo
+        </a>
+      </div>
+    </header>
 
-<h2>Description</h2>
-<p>This project is a simple banking system which allows users to create an account, deposit money, withdraw money, and transfer funds between accounts.</p>
+    <!-- Description -->
+    <section class="bg-gray-800/60 backdrop-blur rounded-xl p-6 mb-10 shadow-md border border-gray-700">
+      <h2 class="text-2xl font-semibold text-white border-b border-gray-600 pb-2 mb-4">📋 Description</h2>
+      <p>This project is a simple banking system that allows users to create an account, deposit money, withdraw money, and transfer funds between accounts.</p>
+    </section>
 
-<h2>Features</h2>
-<ul>
-  <li>Create a new branch</li>
-  <li>Add, update or remove branch</li>
-  <li>Create a new bank account</li>
-  <li>Add, update or remove bank account</li>
-  <li>Create a new debit card</li>
-  <li>Add, update or remove debit card</li>
-  <li>Create a new cheque</li>
-  <li>Add, update or remove cheque</li>
-  <li>View account balance</li>
-</ul>
+    <!-- Features -->
+    <section class="bg-gray-800/60 backdrop-blur rounded-xl p-6 mb-10 shadow-md border border-gray-700">
+      <h2 class="text-2xl font-semibold text-white border-b border-gray-600 pb-2 mb-4">✨ Features</h2>
+      <ul class="list-disc list-inside space-y-1 text-gray-300">
+        <li>Create a new branch</li>
+        <li>Add, update or remove branch</li>
+        <li>Create a new bank account</li>
+        <li>Add, update or remove bank account</li>
+        <li>Create a new debit card</li>
+        <li>Add, update or remove debit card</li>
+        <li>Create a new cheque</li>
+        <li>Add, update or remove cheque</li>
+        <li>View account balance</li>
+      </ul>
+    </section>
 
-<h2>Installation</h2>
-<p>Provide instructions on how to install your project locally. For example:</p>
-<ol>
-  <li>Clone the repository: <a href="https://github.com/bilguun04/banking-system.git">git clone https://github.com/Bilguun04/Banking-System.git</a></li>
-  <li>Navigate to the project directory: <code>cd banking-system</code></li>
-</ol>
+    <!-- Installation -->
+    <section class="bg-gray-800/60 backdrop-blur rounded-xl p-6 mb-10 shadow-md border border-gray-700">
+      <h2 class="text-2xl font-semibold text-white border-b border-gray-600 pb-2 mb-4">🛠️ Installation</h2>
+      <p class="mb-3 text-gray-300">Follow these steps to install the project locally:</p>
+      <ol class="list-decimal list-inside space-y-1 text-gray-300">
+        <li>
+          Clone the repository:
+          <a class="text-blue-300 underline hover:text-blue-400 transition" href="https://github.com/bilguun04/banking-system.git" target="_blank">
+            git clone https://github.com/Bilguun04/Banking-System.git
+          </a>
+        </li>
+        <li>
+          Navigate to the project directory:
+          <code class="bg-gray-700 text-sm px-2 py-1 rounded">cd banking-system</code>
+        </li>
+      </ol>
+    </section>
 
-<h2>License</h2>
-<p>Distributed under the MIT License. See <code>LICENSE</code> for more information.</p>
+    <!-- License -->
+    <section class="bg-gray-800/60 backdrop-blur rounded-xl p-6 shadow-md border border-gray-700">
+      <h2 class="text-2xl font-semibold text-white border-b border-gray-600 pb-2 mb-4">📄 License</h2>
+      <p class="text-gray-300">
+        Distributed under the <span class="font-medium text-white">MIT License</span>. See
+        <code class="bg-gray-700 text-sm px-2 py-1 rounded">LICENSE</code> for more information.
+      </p>
+    </section>
+  </div>
 
 </body>
 </html>
