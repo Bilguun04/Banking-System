@@ -32,8 +32,8 @@ dependencies {
     // H2 Database (for development)
     runtimeOnly("com.h2database:h2")
 
-    // MySQL Driver (for production)
-    implementation("com.mysql:mysql-connector-java:8.0.33")
+    // PostgreSQL Driver (for production)
+    implementation("org.postgresql:postgresql:42.7.1")
 
     // Spring Boot Data Redis
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
