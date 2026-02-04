@@ -1,0 +1,250 @@
+<div class="flex min-h-screen bg-gray-100">
+  <app-sidebar></app-sidebar>
+  
+  <div class="flex-1">
+    <app-header [title]="'Transactions'" [subtitle]="'View and manage your transaction history'"></app-header>
+    
+    <main class="p-6 space-y-6">
+      <!-- Action Bar -->
+      <div class="bg-white rounded-xl shadow-sm p-6">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+          <div class="flex items-center space-x-4">
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Search transactions..."
+                class="pl-10 pr-4 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-emerald-500 transition w-64"
+              />
+              <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+            <select class="px-4 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-emerald-500 transition">
+              <option>All Accounts</option>
+              <option>Checking</option>
+              <option>Savings</option>
+              <option>Credit Card</option>
+            </select>
+            <select class="px-4 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-emerald-500 transition">
+              <option>All Types</option>
+              <option>Income</option>
+              <option>Expense</option>
+              <option>Transfer</option>
+            </select>
+          </div>
+          <button class="px-6 py-2 bg-gradient-to-r from-emerald-700 to-emerald-800 text-white rounded-lg font-semibold hover:from-emerald-800 hover:to-emerald-900 transition shadow-md flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            </svg>
+            <span>New Transaction</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Summary Cards -->
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl shadow-sm p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm text-gray-500 mb-1">Total Income</p>
+              <p class="text-2xl font-bold text-emerald-600">+$8,450.00</p>
+              <p class="text-xs text-gray-500 mt-1">This month</p>
+            </div>
+            <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-sm p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm text-gray-500 mb-1">Total Expenses</p>
+              <p class="text-2xl font-bold text-red-600">-$3,280.00</p>
+              <p class="text-xs text-gray-500 mt-1">This month</p>
+            </div>
+            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-sm p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm text-gray-500 mb-1">Net Change</p>
+              <p class="text-2xl font-bold text-gray-900">+$5,170.00</p>
+              <p class="text-xs text-emerald-600 mt-1">+62% vs last month</p>
+            </div>
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Transactions Table -->
+      <div class="bg-white rounded-xl shadow-sm p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-lg font-bold text-gray-900">All Transactions</h3>
+          <button class="flex items-center space-x-2 px-4 py-2 border-2 border-gray-200 rounded-lg hover:bg-gray-50 transition">
+            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <span class="text-sm font-semibold">Export</span>
+          </button>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-gray-200">
+                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700">Date</th>
+                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700">Description</th>
+                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700">Category</th>
+                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700">Account</th>
+                <th class="text-right py-3 px-4 text-sm font-semibold text-gray-700">Amount</th>
+                <th class="text-right py-3 px-4 text-sm font-semibold text-gray-700">Status</th>
+                <th class="text-right py-3 px-4 text-sm font-semibold text-gray-700">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-100 hover:bg-gray-50">
+                <td class="py-4 px-4 text-sm text-gray-600">Feb 4, 2026<br/><span class="text-xs text-gray-400">10:30 AM</span></td>
+                <td class="py-4 px-4">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900">Walmart Supercenter</p>
+                      <p class="text-xs text-gray-500">Debit Card Purchase</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 text-sm text-gray-600">Groceries</td>
+                <td class="py-4 px-4 text-sm text-gray-600">Checking</td>
+                <td class="py-4 px-4 text-sm text-red-600 font-semibold text-right">-$125.50</td>
+                <td class="py-4 px-4 text-right">
+                  <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-semibold">Completed</span>
+                </td>
+                <td class="py-4 px-4 text-right">
+                  <button class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+                    </svg>
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b border-gray-100 hover:bg-gray-50">
+                <td class="py-4 px-4 text-sm text-gray-600">Feb 3, 2026<br/><span class="text-xs text-gray-400">2:15 PM</span></td>
+                <td class="py-4 px-4">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900">Direct Deposit</p>
+                      <p class="text-xs text-gray-500">Payroll - TechCorp Inc.</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 text-sm text-gray-600">Salary</td>
+                <td class="py-4 px-4 text-sm text-gray-600">Checking</td>
+                <td class="py-4 px-4 text-sm text-emerald-600 font-semibold text-right">+$3,500.00</td>
+                <td class="py-4 px-4 text-right">
+                  <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-semibold">Completed</span>
+                </td>
+                <td class="py-4 px-4 text-right">
+                  <button class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+                    </svg>
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b border-gray-100 hover:bg-gray-50">
+                <td class="py-4 px-4 text-sm text-gray-600">Feb 2, 2026<br/><span class="text-xs text-gray-400">4:45 PM</span></td>
+                <td class="py-4 px-4">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900">Electric Company</p>
+                      <p class="text-xs text-gray-500">Monthly Bill Payment</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 text-sm text-gray-600">Utilities</td>
+                <td class="py-4 px-4 text-sm text-gray-600">Checking</td>
+                <td class="py-4 px-4 text-sm text-red-600 font-semibold text-right">-$89.25</td>
+                <td class="py-4 px-4 text-right">
+                  <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-semibold">Completed</span>
+                </td>
+                <td class="py-4 px-4 text-right">
+                  <button class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+                    </svg>
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b border-gray-100 hover:bg-gray-50">
+                <td class="py-4 px-4 text-sm text-gray-600">Feb 1, 2026<br/><span class="text-xs text-gray-400">11:20 AM</span></td>
+                <td class="py-4 px-4">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-900">Amazon.com</p>
+                      <p class="text-xs text-gray-500">Online Purchase</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 text-sm text-gray-600">Shopping</td>
+                <td class="py-4 px-4 text-sm text-gray-600">Credit Card</td>
+                <td class="py-4 px-4 text-sm text-red-600 font-semibold text-right">-$245.99</td>
+                <td class="py-4 px-4 text-right">
+                  <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-semibold">Pending</span>
+                </td>
+                <td class="py-4 px-4 text-right">
+                  <button class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+                    </svg>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Pagination -->
+        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-200">
+          <p class="text-sm text-gray-600">Showing 1-4 of 156 transactions</p>
+          <div class="flex space-x-2">
+            <button class="px-4 py-2 border-2 border-gray-200 rounded-lg hover:bg-gray-50 transition text-sm font-semibold">Previous</button>
+            <button class="px-4 py-2 bg-emerald-700 text-white rounded-lg hover:bg-emerald-800 transition text-sm font-semibold">1</button>
+            <button class="px-4 py-2 border-2 border-gray-200 rounded-lg hover:bg-gray-50 transition text-sm font-semibold">2</button>
+            <button class="px-4 py-2 border-2 border-gray-200 rounded-lg hover:bg-gray-50 transition text-sm font-semibold">3</button>
+            <button class="px-4 py-2 border-2 border-gray-200 rounded-lg hover:bg-gray-50 transition text-sm font-semibold">Next</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

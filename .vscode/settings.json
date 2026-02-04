@@ -1,5 +1,11 @@
 {
     "java.dependency.packagePresentation": "hierarchical",
-    "testing.alwaysRevealTestOnStateChange": true
-    
+    "testing.alwaysRevealTestOnStateChange": true,
+    "css.lint.unknownAtRules": "ignore",
+    "css.lint.duplicateProperties": "ignore",
+    "css.lint.emptyRules": "ignore",
+    "css.lint.importStatement": "ignore",
+    "css.lint.invalidProperty": "ignore",
+    "css.lint.unknownProperties": "ignore",
+    "css.lint.zeroUnits": "ignore"
 }
