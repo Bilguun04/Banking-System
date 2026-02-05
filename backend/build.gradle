@@ -1,7 +1,5 @@
-import org.gradle.api.tasks.testing.logging.TestLoggingContainer
-
 plugins {
-    java
+    id("java")
     id("org.springframework.boot") version "3.2.0"
     id("io.spring.dependency-management") version "1.1.4"
 }
@@ -33,7 +31,7 @@ dependencies {
     runtimeOnly("com.h2database:h2")
 
     // PostgreSQL Driver (for production)
-    implementation("org.postgresql:postgresql:42.7.1")
+    runtimeOnly("org.postgresql:postgresql:42.7.1")
 
     // Spring Boot Data Redis
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
@@ -51,6 +49,10 @@ dependencies {
     // Test Dependencies
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
+
+    // Cucumber for BDD Testing
+    testImplementation("io.cucumber:cucumber-java:7.33.0")
+    testImplementation("io.cucumber:cucumber-junit:7.33.0")
 }
 
 tasks.test {
