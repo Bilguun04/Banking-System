@@ -44,6 +44,6 @@ export class App {
   protected readonly title = signal('src');
 
   protected prepareRoute(outlet: RouterOutlet) {
-    return outlet?.activatedRouteData?.['animation'] ?? outlet?.activatedRoute?.routeConfig?.path;
+    return outlet?.activatedRouteData?.['animation'] ?? '';
   }
 }
