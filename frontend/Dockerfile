@@ -1,5 +1,5 @@
 # Stage 1: Build Angular application
-FROM node:21-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
@@ -18,10 +18,10 @@ RUN npm run build
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
 
-# Copy the built application from the builder stage
-COPY --from=builder /app/dist/src /usr/share/nginx/html
+# Copy the built application from the builder stage (Angular 21 outputs to dist/<project>/browser)
+COPY --from=builder /app/dist/src/browser /usr/share/nginx/html
 
-# Copy custom Nginx configuration (optional)
+# Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80
