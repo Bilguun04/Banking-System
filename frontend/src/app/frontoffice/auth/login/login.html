@@ -1,4 +1,13 @@
 <div class="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-emerald-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div
+    *ngIf="toastMessage"
+    role="alert"
+    class="fixed top-6 left-1/2 -translate-x-1/2 z-50 px-4 py-3 rounded-lg shadow-lg text-white"
+    [class.bg-emerald-700]="toastType === 'success'"
+    [class.bg-red-600]="toastType === 'error'"
+  >
+    {{ toastMessage }}
+  </div>
   <div class="max-w-md w-full space-y-8">
     <!-- Header -->
     <div class="text-center">
@@ -13,19 +22,21 @@
 
     <!-- Login Form -->
     <div class="bg-white rounded-2xl shadow-xl p-8 space-y-6">
-      <form class="space-y-6">
+      <form id="login-form" class="space-y-6" (ngSubmit)="onSubmit()">
         <!-- Email Input -->
         <div>
-          <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
-            Email Address
+          <label for="username" class="block text-sm font-semibold text-gray-700 mb-2">
+            Username
           </label>
           <input
-            id="email"
-            name="email"
-            type="email"
+            id="username"
+            name="username"
+            type="text"
+            autocomplete="username"
             required
+            [(ngModel)]="credentials.username"
             class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-emerald-500 transition"
-            placeholder="you@example.com"
+            placeholder="your.username"
           />
         </div>
 
@@ -38,7 +49,9 @@
             id="password"
             name="password"
             type="password"
+            autocomplete="current-password"
             required
+            [(ngModel)]="credentials.password"
             class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-emerald-500 transition"
             placeholder="••••••••"
           />
@@ -49,8 +62,9 @@
           <div class="flex items-center">
             <input
               id="remember-me"
-              name="remember-me"
+              name="rememberMe"
               type="checkbox"
+              [(ngModel)]="credentials.rememberMe"
               class="h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-gray-300 rounded"
             />
             <label for="remember-me" class="ml-2 block text-sm text-gray-700">
@@ -65,9 +79,10 @@
         <!-- Submit Button -->
         <button
           type="submit"
+          [disabled]="isSubmitting"
           class="w-full py-3 px-4 bg-gradient-to-r from-emerald-700 to-emerald-800 hover:from-emerald-800 hover:to-emerald-900 text-white font-semibold rounded-lg transition shadow-lg transform hover:scale-105"
         >
-          Sign In
+          {{ isSubmitting ? 'Signing In...' : 'Sign In' }}
         </button>
       </form>
 
