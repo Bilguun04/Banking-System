@@ -18,49 +18,8 @@ A complete full-stack banking application with Spring Boot backend and Angular f
 
 ### Frontend (Angular)
 ✅ Angular 17 with Standalone Components
-✅ TypeScript 5.2
-✅ RxJS Services
-✅ HTTP Client Configuration
-✅ Modern CSS Styling
-✅ Routing Configuration
-✅ Type-Safe Models
-✅ Nginx Server (Production)
 
-### Infrastructure
-✅ MySQL 8.0 Database
-✅ Redis 7 Cache Layer
-✅ Docker & Docker Compose
-✅ Health Checks for all services
-✅ Volume Management for data persistence
-
-### Entities & Features
-✅ Branch Management
-✅ Bank Account Management
-✅ Account-Branch Relationships
-✅ CRUD Operations
-✅ Redis Caching
-
-## 🚀 Quick Start
-
-### Option 1: Using Docker Compose (Recommended)
-
-**One-Command Setup:**
-```bash
-docker-compose up --build
-```
-
-**Access:**
-- Frontend: http://localhost:4200
-- Backend: http://localhost:8080/api
-- MySQL: localhost:3306
-- Redis: localhost:6379
-
-**Stop:**
-```bash
-docker-compose down
-```
-
-### Option 2: Local Development
+### Option: Local Development (Without Docker)
 
 #### 1. Start Backend
 ```bash
@@ -130,10 +89,9 @@ Banking-System/
 │   ├── nginx.conf
 │   ├── .gitignore
 │   └── README.md
-├── docker-compose.yml         # Multi-container orchestration
+├── compose.yml         # Multi-container orchestration
 ├── DOCKER.md                  # Docker deployment guide
 ├── SETUP.md                   # Local development setup
-├── QUICK_REFERENCE.md         # Commands cheatsheet
 └── README.md                  # This file
 ```
 
@@ -149,7 +107,7 @@ The entire application is containerized with all services:
 
 **Quick start:**
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 For detailed Docker documentation, see [DOCKER.md](DOCKER.md)
@@ -171,30 +129,125 @@ For detailed Docker documentation, see [DOCKER.md](DOCKER.md)
 - `PUT /api/accounts/{id}` - Update account
 - `DELETE /api/accounts/{id}` - Delete account
 
-## 📦 Technologies
 
-**Backend:**
-- Java 17
-- Spring Boot 3.2.0
-- Spring Data JPA
-- Spring Data Redis
-- Hibernate ORM
-- Maven
-- H2/MySQL
+## 📦 Tech Stack
 
-**Frontend:**
-- Angular 17
-- TypeScript 5.2
-- RxJS 7.8
-- HTML5/CSS3
-- Nginx
-- npm
+### 🐳 Containerization
+- **Docker** 20.10+
+- **Docker Compose** 2.0+
+- **Nginx** (for frontend serving)
 
-**Infrastructure:**
-- Docker 20.10+
-- Docker Compose 2.0+
-- MySQL 8.0
-- Redis 7
+### 🗄️ Database
+- **MySQL 8.0** (Production)
+- **H2** (In-memory, Development)
+- **Redis 7** (Cache Layer)
+
+### 🔙 Backend
+- **Java 17**
+- **Spring Boot 3.2.0**
+- **Spring Data JPA** (with Hibernate ORM)
+- **Spring Data Redis**
+- **Spring Security**
+- **Lombok**
+- **JUnit 5** & **Cucumber** (Testing)
+
+### 🔜 Frontend
+- **Angular 17**
+- **TypeScript 5.2**
+- **RxJS 7.8**
+- **HTML5/CSS3**
+- **npm**
+
+---
+
+## 📁 Project Structure
+
+```
+Banking-System/
+├── ARCHITECTURE.md
+├── bankingsystem.ump
+├── compose.yml
+├── index.html
+├── LICENSE
+├── package.json
+├── pom.xml
+├── README.md
+├── backend/
+│   ├── build.gradle
+│   ├── Dockerfile
+│   ├── gradle.properties
+│   ├── gradlew
+│   ├── gradlew.bat
+│   ├── README.md
+│   ├── settings.gradle
+│   ├── build/
+│   ├── gradle/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   │   └── com/
+│   │   │   │       └── banking/
+│   │   │   │           ├── BankingSystemApplication.java
+│   │   │   │           ├── config/
+│   │   │   │           ├── controller/
+│   │   │   │           ├── dto/
+│   │   │   │           ├── entity/
+│   │   │   │           ├── repository/
+│   │   │   │           └── service/
+│   │   │   └── resources/
+│   │   │       ├── application-docker.properties
+│   │   │       └── application.properties
+│   │   └── test/
+│   │       ├── java/
+│   │       │   └── com/
+│   │       │       └── banking/
+│   │       │           ├── CucumberSpringConfiguration.java
+│   │       │           ├── CucumberTest.java
+│   │       │           └── steps/
+│   │       └── resources/
+│   │           └── features/
+│   │               ├── customer.feature
+│   │               ├── moderator.feature
+│   │               └── staff.feature
+├── frontend/
+│   ├── angular.json
+│   ├── Dockerfile
+│   ├── Dockerfile.dev
+│   ├── nginx.conf
+│   ├── package.json
+│   ├── README.md
+│   ├── tsconfig.app.json
+│   ├── tsconfig.json
+│   ├── tsconfig.spec.json
+│   ├── public/
+│   └── src/
+│       ├── index.html
+│       ├── main.ts
+│       ├── styles.css
+│       └── app/
+│           ├── app.config.ts
+│           ├── app.css
+│           ├── app.html
+│           ├── app.routes.ts
+│           ├── app.spec.ts
+│           ├── app.ts
+│           ├── backoffice/
+│           │   ├── accounts/
+│           │   ├── dashboard/
+│           │   └── transactions/
+│           ├── frontoffice/
+│           │   ├── about/
+│           │   ├── auth/
+│           │   ├── features/
+│           │   └── home/
+│           ├── services/
+│           │   └── auth.service.ts
+│           └── shared/
+│               ├── footer/
+│               ├── header/
+│               ├── navbar/
+│               └── sidebar/
+```
 
 ## 🛠️ Installation Requirements
 

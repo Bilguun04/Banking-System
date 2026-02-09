@@ -1,12 +1,11 @@
 services:
-  # PostgreSQL: Exposed for local DB tools (DBeaver, pgAdmin)
   postgres:
     image: postgres:16-alpine
-    container_name: banking-db-dev
+    container_name: banking-db
     environment:
       POSTGRES_DB: banking_db
-      POSTGRES_USER: banking_user
-      POSTGRES_PASSWORD: banking_password
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: rootuser
     ports:
       - "5432:5432"
     volumes:
@@ -40,8 +39,8 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: dev
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/banking_db
-      SPRING_DATASOURCE_USERNAME: banking_user
-      SPRING_DATASOURCE_PASSWORD: banking_password
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: rootuser
       SPRING_DATA_REDIS_HOST: redis
       # Debugging port for attaching an IDE debugger
       JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
