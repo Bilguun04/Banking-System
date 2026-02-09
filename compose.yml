@@ -1,12 +1,11 @@
 services:
-  # PostgreSQL Database
   postgres:
     image: postgres:16-alpine
-    container_name: banking-system-database
+    container_name: banking-db
     environment:
       POSTGRES_DB: banking_db
-      POSTGRES_USER: banking_user
-      POSTGRES_PASSWORD: banking_password
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: rootuser
     ports:
       - "5432:5432"
     volumes:
@@ -15,86 +14,63 @@ services:
       - banking-network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U banking_user -d banking_db"]
-      timeout: 20s
-      retries: 10
       interval: 5s
-    restart: unless-stopped
+      timeout: 5s
+      retries: 5
 
-  # Redis Cache
+  # Redis: Simple cache for dev
   redis:
     image: redis:7-alpine
-    container_name: banking-system-cache
+    container_name: banking-cache-dev
     ports:
       - "6379:6379"
-    volumes:
-      - redis_data:/data
     networks:
       - banking-network
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      timeout: 10s
-      retries: 5
-      interval: 3s
-    restart: unless-stopped
-    command: redis-server --appendonly yes
 
-  # Backend Spring Boot
+  # Backend: Optimized for hot-reloading (Spring Boot DevTools)
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
-    container_name: banking-system-backend
+      dockerfile: Dockerfile # Ensure this uses a JDK image, not JRE, for dev
+    container_name: banking-backend-dev
+    volumes:
+      - ./backend:/app  # Mount source for hot-reload support
+      - ~/.m2:/root/.m2 # Cache Maven dependencies locally
     environment:
-      SPRING_PROFILES_ACTIVE: docker
+      SPRING_PROFILES_ACTIVE: dev
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/banking_db
-      SPRING_DATASOURCE_USERNAME: banking_user
-      SPRING_DATASOURCE_PASSWORD: banking_password
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: rootuser
       SPRING_DATA_REDIS_HOST: redis
-      SPRING_DATA_REDIS_PORT: 6379
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
-      JAVA_OPTS: "-Xmx512m -Xms256m"
+      # Debugging port for attaching an IDE debugger
+      JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
     ports:
       - "8080:8080"
+      - "5005:5005" 
     depends_on:
       postgres:
         condition: service_healthy
-      redis:
-        condition: service_healthy
     networks:
       - banking-network
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/api/actuator/health"]
-      timeout: 30s
-      retries: 10
-      interval: 10s
-      start_period: 60s
 
-  # Frontend Angular with Nginx
+  # Frontend: Optimized for Angular CLI live-reload
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
-    container_name: banking-system-frontend
+      dockerfile: Dockerfile.dev # Use a simpler Dockerfile (Node-based, not Nginx)
+    container_name: banking-frontend-dev
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules # Don't overwrite container modules with host ones
     ports:
-      - "4200:80"
-    depends_on:
-      - backend
+      - "4200:4200"
+    environment:
+      - CHOKIDAR_USEPOLLING=true # Helps with file change detection in Docker
     networks:
       - banking-network
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
-      timeout: 10s
-      retries: 5
-      interval: 10s
 
 volumes:
   postgres_data:
-    driver: local
-  redis_data:
-    driver: local
-
 networks:
   banking-network:
     driver: bridge

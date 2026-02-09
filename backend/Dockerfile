@@ -21,9 +21,9 @@ RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
 
 # Copy built jar from builder
-COPY --from=builder /build/build/libs/banking-system-backend-1.0.0.jar app.jar
+COPY --from=builder /build/build/libs/banking-system-backend-1.0.0.jar build/libs/banking-system-backend-1.0.0.jar
 
 EXPOSE 8080
 
 # Run with container-aware JVM settings
-ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75", "-Dfile.encoding=UTF-8", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75", "-Dfile.encoding=UTF-8", "-jar", "build/libs/banking-system-backend-1.0.0.jar"]
