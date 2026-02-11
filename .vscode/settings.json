@@ -7,5 +7,6 @@
     "css.lint.importStatement": "ignore",
     "css.lint.invalidProperty": "ignore",
     "css.lint.unknownProperties": "ignore",
-    "css.lint.zeroUnits": "ignore"
+    "css.lint.zeroUnits": "ignore",
+    "postman.settings.dotenv-detection-notification-visibility": false
 }

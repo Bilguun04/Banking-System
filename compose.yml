@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   postgres:
     image: postgres:16-alpine
@@ -13,40 +15,22 @@ services:
     networks:
       - banking-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U banking_user -d banking_db"]
-      interval: 5s
+      test: ["CMD-SHELL", "pg_isready -U admin -d rootuser"]
+      interval: 10s
       timeout: 5s
       retries: 5
 
-  # Redis: Simple cache for dev
-  redis:
-    image: redis:7-alpine
-    container_name: banking-cache-dev
-    ports:
-      - "6379:6379"
-    networks:
-      - banking-network
-
-  # Backend: Optimized for hot-reloading (Spring Boot DevTools)
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile # Ensure this uses a JDK image, not JRE, for dev
-    container_name: banking-backend-dev
-    volumes:
-      - ./backend:/app  # Mount source for hot-reload support
-      - ~/.m2:/root/.m2 # Cache Maven dependencies locally
+    build: ./backend
+    container_name: banking-backend
+    ports:
+      - "8080:8080"
     environment:
-      SPRING_PROFILES_ACTIVE: dev
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/banking_db
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: rootuser
-      SPRING_DATA_REDIS_HOST: redis
-      # Debugging port for attaching an IDE debugger
-      JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
-    ports:
-      - "8080:8080"
-      - "5005:5005" 
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
     depends_on:
       postgres:
         condition: service_healthy
