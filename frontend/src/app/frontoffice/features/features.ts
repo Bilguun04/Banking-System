@@ -12,7 +12,7 @@ interface Feature {
 @Component({
   selector: 'app-features',
   standalone: true,
-  imports: [CommonModule, Navbar, Footer],
+  imports: [CommonModule, Navbar],
   templateUrl: './features.html',
   styleUrl: './features.css'
 })
