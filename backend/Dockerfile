@@ -1,5 +1,5 @@
 # Stage 1: Build with Gradle
-FROM eclipse-temurin:17-jdk-alpine as builder
+FROM eclipse-temurin:17-jdk-alpine AS builder
 WORKDIR /build
 
 # Install Gradle
@@ -16,14 +16,23 @@ RUN gradle clean bootJar -x test --no-daemon
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
-# Create non-root user for security (Spring Boot best practice)
+# Create non-root user for security
 RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
 
 # Copy built jar from builder
-COPY --from=builder /build/build/libs/banking-system-backend-1.0.0.jar build/libs/banking-system-backend-1.0.0.jar
+COPY --from=builder /build/build/libs/*.jar app.jar
+
+# Change ownership
+RUN chown spring:spring app.jar
+
+USER spring:spring
 
 EXPOSE 8080
 
 # Run with container-aware JVM settings
-ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75", "-Dfile.encoding=UTF-8", "-jar", "build/libs/banking-system-backend-1.0.0.jar"]
+ENTRYPOINT ["java", \
+    "-XX:+UseContainerSupport", \
+    "-XX:MaxRAMPercentage=75.0", \
+    "-Djava.security.egd=file:/dev/./urandom", \
+    "-jar", \
+    "app.jar"]
