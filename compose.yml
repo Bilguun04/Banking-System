@@ -2,7 +2,7 @@ name: banking-app
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: db
+    container_name: banking-db
     environment:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USERNAME}
@@ -23,7 +23,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: backend
+    container_name: banking-backend
     ports:
       - "8080:8080"
     environment:
@@ -42,7 +42,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: frontend
+    container_name: banking-frontend
     volumes:
       - ./frontend:/app
       - /app/node_modules

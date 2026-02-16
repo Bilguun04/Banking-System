@@ -1,4 +1,4 @@
-package com.banking;
+package com.banking.steps;
 
 import org.junit.platform.suite.api.ConfigurationParameter;
 import org.junit.platform.suite.api.IncludeEngines;
